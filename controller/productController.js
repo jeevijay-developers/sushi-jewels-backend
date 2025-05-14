@@ -5,24 +5,22 @@ const { languageCodes } = require("../utils/data");
 
 const addProduct = async (req, res) => {
   try {
+    const generatedId = new mongoose.Types.ObjectId().toString(); // convert ObjectId to string
     const newProduct = new Product({
       ...req.body,
-      // productId: cname + (count + 1),
-      productId: req.body.productId
-        ? req.body.productId
-        : mongoose.Types.ObjectId(),
+      productId: req.body.productId || generatedId,
     });
-    //  console.log('product data',req.body)
 
     await newProduct.save();
     res.send(newProduct);
   } catch (err) {
-    console.log("error in add product", err),
-      res.status(500).send({
-        message: err.message,
-      });
+    console.log("error in add product", err);
+    res.status(500).send({
+      message: err.message,
+    });
   }
 };
+
 
 const addAllProducts = async (req, res) => {
   try {
