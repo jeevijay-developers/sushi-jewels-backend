@@ -26,6 +26,7 @@ const partnerRoutes = require("../routes/partnerRoutes");
 const bikeRideRoutes = require("../routes/bikeriderRoute");
 const { isAuth, isAdmin } = require("../config/auth");
 const storeNotificationRoutes = require("../routes/storeNotificationRoutes");
+const queryFormRoutes = require("../routes/queryFormRoutes");
 // const {
 //   getGlobalSetting,
 //   getStoreCustomizationSetting,
@@ -72,6 +73,7 @@ app.use("/api/partners/", partnerRoutes);
 app.use("/api/tele/", telecallerRoutes);
 app.use("/api/rider/", bikeRideRoutes);
 app.use("/api/store/notification/", storeNotificationRoutes);
+app.use("/api/query/", queryFormRoutes);
 
 //if you not use admin dashboard then these two route will not needed.
 app.use("/api/admin/", adminRoutes);
