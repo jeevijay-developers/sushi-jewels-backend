@@ -1,31 +1,31 @@
 const mongoose = require("mongoose");
 
-const querySchema = new mongoose.Schema(
-    {
-        fullName: {
-            type: String,
-            required: true,
-        },
-        phone: {
-            type: String,
-            required: true,
-        },
-        jewelleryType: {
-            type: String,
-            required: true,
-        },
-        budget: {
-            type: String,
-            required: true,
-        },
-        message: {
-            type: String,
-        },
+const productquerySchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
     },
-    {
-        timestamps: true,
-    }
+    phone: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    product: {
+      type: String,
+      required: true,
+    },
+    message: {
+      type: String,
+    },
+  },
+  {
+    timestamps: true,
+  }
 );
 
-const query = mongoose.model("Query", querySchema);
-module.exports = query;
+const productquery = mongoose.model("ProductQuery", productquerySchema);
+module.exports = productquery;

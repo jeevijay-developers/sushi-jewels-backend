@@ -1,3 +1,4 @@
+const productquery = require("../models/ProductQuery");
 const Query = require("../models/Query");
 
 const submitQuery = async (req, res) => {
@@ -77,7 +78,7 @@ const submitProductQuery = async (req, res) => {
     return res.status(400).send({ message: "All fields are required." });
   }
   try {
-    const newQuery = new ProductQuery({
+    const newQuery = new productquery({
       name: req.body.name,
       phone: req.body.phone,
       email: req.body.email,
