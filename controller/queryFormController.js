@@ -50,8 +50,9 @@ const getProductQuery = async (req, res) => {
     const page = Math.max(1, parseInt(req.query.page) || 1);
     const limit = Math.max(1, parseInt(req.query.limit) || 10);
     const skip = (page - 1) * limit;
-    const totalQueries = await ProductQuery.countDocuments();
-    const queries = await ProductQuery.find()
+    const totalQueries = await productquery.countDocuments();
+    const queries = await productquery
+      .find()
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit);
